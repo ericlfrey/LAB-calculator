@@ -1,3 +1,50 @@
 body {
+  background-color: whitesmoke;
+  /* text-align: center; */
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+.wrapper {
+  width: 400px;
+  border: solid red 1px;
+}
+
+.display {
   background-color: black;
+  color: white;
+  text-align: right;
+  /* padding: 10px 0; */
+  height: 50px;
+  font-size: 30px;
+}
+
+.buttons {
+  display: flex;
+}
+
+button {
+  height: 100px;
+  margin: 0;
+  border: solid 1px black;
+  font-size: 40px;
+}
+
+.single-wide {
+  width: 100px;
+}
+
+.double-wide {
+  width: 200px;
+}
+
+.btn-input {
+  background-color: #d8d9db;
+  color: black;
+}
+
+.btn-function {
+  background-color: #df974c;
+  color: white;
 }
