@@ -1,8 +1,6 @@
 body {
   background-color: whitesmoke;
-  /* position: fixed; */
   display: flex;
-  /* text-align: center; */
   justify-content: center;
   min-width: 400px;
 }
