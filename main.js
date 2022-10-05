@@ -1,6 +1,7 @@
 const screenDisplay = document.getElementById('display');
 const buttons = document.querySelectorAll('button[id]');
 const clear = document.getElementById('clear');
+const backspace = document.getElementById('back-arrow');
 
 buttons.forEach(btn => {
   btn.addEventListener('click', function () {
@@ -17,3 +18,9 @@ const inputNumber = number => {
 clear.addEventListener('click', function () {
   screenDisplay.innerHTML = '0';
 });
+
+backspace.addEventListener('click', function () {
+  screenDisplay.innerHTML = screenDisplay.innerHTML.slice(0, -1);
+  if (screenDisplay.innerHTML === '') screenDisplay.innerHTML = '0';
+
+})
