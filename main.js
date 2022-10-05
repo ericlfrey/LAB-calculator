@@ -1,9 +1,19 @@
-console.log('Calculator!');
+const screenDisplay = document.getElementById('display');
+const buttons = document.querySelectorAll('button[id]');
+const clear = document.getElementById('clear');
 
-const display = document.getElementById('display');
-const one = document.getElementById('one');
+buttons.forEach(btn => {
+  btn.addEventListener('click', function () {
+    inputNumber(this.id)
+  });
+});
 
-
-function clickOne() {
-  display.innerHTML = 1;
+const inputNumber = number => {
+  let screenNumber = screenDisplay.innerHTML;
+  if (screenNumber.length < 16)
+    screenDisplay.innerHTML = parseInt(screenNumber + number).toString();
 }
+
+clear.addEventListener('click', function () {
+  screenDisplay.innerHTML = '0';
+});
