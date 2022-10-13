@@ -16,6 +16,7 @@ keys.addEventListener('click', e => {
       } else {
         display.textContent = displayedNum + keyContent;
       }
+      calculator.dataset.previousKey = 'number';
     }
     //check to see if a key is an operator
     if (
@@ -24,6 +25,14 @@ keys.addEventListener('click', e => {
       action === 'multiply' ||
       action === 'divide'
     ) {
+      const firstValue = calculator.dataset.firstValue;
+      const operator = calculator.dataset.operator;
+      const secondValue = displayedNum;
+
+      if (firstValue && operator) {
+        display.textContent = calculate(firstValue, operator, secondValue);
+      }
+
       key.classList.add('is-depressed');
       calculator.dataset.previousKeyType = 'operator';
       calculator.dataset.firstValue = displayedNum;
@@ -33,11 +42,13 @@ keys.addEventListener('click', e => {
     if (action === 'decimal') {
       if (!displayedNum.includes('.')) {
         display.textContent = displayedNum + '.';
+      } else if (previousKeyType === 'operator') {
+        display.textContent = '0.';
       }
-      // display.textContent = displayedNum + '.';
+      calculator.dataset.previousKey = 'decimal';
     }
     if (action === 'clear') {
-      console.log('clear key!');
+      calculator.dataset.previousKey = 'clear';
     }
     if (action === 'delete') {
       console.log('delete key!');
@@ -46,8 +57,6 @@ keys.addEventListener('click', e => {
       const firstValue = calculator.dataset.firstValue;
       const operator = calculator.dataset.operator;
       const secondValue = displayedNum;
-
-
 
       const calculate = (n1, operator, n2) => {
         let result = '';
@@ -64,6 +73,7 @@ keys.addEventListener('click', e => {
       }
 
       display.textContent = calculate(firstValue, operator, secondValue);
+      calculator.dataset.previousKey = 'calculate';
     }
     // Remove .is-depressed class from all keys
     Array.from(key.parentNode.children)
