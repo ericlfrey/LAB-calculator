@@ -8,31 +8,32 @@
   <link rel="shortcut icon" href="./media/f-logo.png">
   <link rel="stylesheet" href="./main.css">
 <body>
-  <div class="wrapper">
-    <div class="display" id="display">0</div>
-    <div class="buttons">
+  <div class="wrapper calculator">
+    <div class="display calculator__display" id="display">0</div>
+    <div class="buttons calculator__keys">
       
-      <button class="double-wide btn-input" id="clear">C</button>
-      <button class="single-wide btn-input" id="back-arrow">&#8592</button>
-      <button class="single-wide btn-function" id="divide">&#247</button>
+      <button class="double-wide btn-input" id="clear" data-action="clear">C</button>
+      <button class="single-wide btn-input" id="back-arrow" data-action="delete">&#8592</button>
+      <button class="single-wide btn-function key--operator" id="divide" data-action="divide">&#247</button>
 
       <button class="single-wide btn-input" id="7">7</button>
       <button class="single-wide btn-input" id="8">8</button>
       <button class="single-wide btn-input" id="9">9</button>
-      <button class="single-wide btn-function" id="multiply">&#215</button>
+      <button class="single-wide btn-function key--operator" id="multiply" data-action="multiply">&#215</button>
 
       <button class="single-wide btn-input" id="4">4</button>
       <button class="single-wide btn-input" id="5">5</button>
       <button class="single-wide btn-input" id="6">6</button>
-      <button class="single-wide btn-function" id="subtract">&#8722</button>
+      <button class="single-wide btn-function key--operator" id="subtract" data-action="subtract">&#8722</button>
 
       <button class="single-wide btn-input" id="1">1</button>
       <button class="single-wide btn-input" id="2">2</button>
       <button class="single-wide btn-input" id="3">3</button>
-      <button class="single-wide btn-function" id="add">&#43</button>
+      <button class="single-wide btn-function key--operator" id="add" data-action="add">&#43</button>
 
-      <button class="triple-wide btn-input" id="0">0</button>
-      <button class="single-wide btn-function" id="equals">&#61</button>
+      <button class="double-wide btn-input" id="0">0</button>
+      <button class="single-wide btn-input" data-action="decimal">.</button>
+      <button class="single-wide btn-function key--equal" id="equals" data-action="calculate">&#61</button>
     </div>
   </div>
   <script src="./main.js"></script>
