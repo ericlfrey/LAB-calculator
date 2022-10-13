@@ -1,9 +1,46 @@
-const calculator = document.querySelector();
+const calculator = document.querySelector('.calculator');
 const keys = calculator.querySelector('.calculator__keys');
+const display = document.querySelector('.calculator__display');
 
 keys.addEventListener('click', e => {
   if (e.target.matches('button')) {
-    //do something
+    const key = e.target;
+    const action = key.dataset.action;
+    const keyContent = key.textContent;
+    const displayedNum = display.textContent;
+    //check to see if button is a number key
+    if (!action) {
+      if (displayedNum === '0') {
+        display.textContent = keyContent;
+      } else {
+        display.textContent = displayedNum + keyContent;
+      }
+    }
+    //check to see if a key is an operator
+    if (
+      action === 'add' ||
+      action === 'subtract' ||
+      action === 'multiply' ||
+      action === 'divide'
+    ) {
+      key.classList.add('is-depressed');
+    }
+    //check to see about other specific keys
+    if (action === 'decimal') {
+      display.textContent = displayedNum + '.';
+    }
+    if (action === 'clear') {
+      console.log('clear key!');
+    }
+    if (action === 'delete') {
+      console.log('delete key!');
+    }
+    if (action === 'calculate') {
+      console.log('equal key!');
+    }
+    // Remove .is-depressed class from all keys
+    Array.from(key.parentNode.children)
+      .forEach(k => k.classList.remove('is-depressed'));
   }
 })
 
