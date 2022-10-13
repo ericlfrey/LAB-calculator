@@ -31,7 +31,10 @@ keys.addEventListener('click', e => {
     }
     //check to see about other specific keys
     if (action === 'decimal') {
-      display.textContent = displayedNum + '.';
+      if (!displayedNum.includes('.')) {
+        display.textContent = displayedNum + '.';
+      }
+      // display.textContent = displayedNum + '.';
     }
     if (action === 'clear') {
       console.log('clear key!');
@@ -44,22 +47,23 @@ keys.addEventListener('click', e => {
       const operator = calculator.dataset.operator;
       const secondValue = displayedNum;
 
-      display.textContent = calculate(firstValue, operator, secondValue);
+
 
       const calculate = (n1, operator, n2) => {
         let result = '';
-
         if (operator === 'add') {
-          result = n1 + n2;
+          result = parseFloat(n1) + parseFloat(n2)
         } else if (operator === 'subtract') {
-          result = n1 - n2;
+          result = parseFloat(n1) - parseFloat(n2)
         } else if (operator === 'multiply') {
-          result = n1 * n2;
+          result = parseFloat(n1) * parseFloat(n2)
         } else if (operator === 'divide') {
-          result = n1 / n2;
+          result = parseFloat(n1) / parseFloat(n2)
         }
         return result;
       }
+
+      display.textContent = calculate(firstValue, operator, secondValue);
     }
     // Remove .is-depressed class from all keys
     Array.from(key.parentNode.children)
